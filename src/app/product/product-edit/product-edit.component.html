@@ -1,0 +1,23 @@
+
+<md-dialog-content>
+  <form #productEditForm="ngForm" (submit)="editData()" novalidate>
+      <md-form-field>
+        <label for="name">Name:</label>
+        <input mdInput type="text" [(ngModel)]="product.name" id="name" placeholder="Product Name" required name="pname" [(ngModel)]="product.name">
+      </md-form-field>
+      <br/>
+      <md-form-field>
+        <label for="Price">Price:</label>
+        <input mdInput type="number" [(ngModel)]="product.price" id="Price" required placeholder="Price" name="price" [(ngModel)]="product.price">
+      </md-form-field>
+      <br/>
+      <md-form-field>
+        <label for="imageUrl">imageUrl:</label>
+        <input type="text" mdInput [(ngModel)]="product.imageUrl" id="imageUrl" required name="imageurl" placeholder="ImageUrl" [(ngModel)]="product.imageUrl">
+      </md-form-field>
+  </form>
+</md-dialog-content>
+<md-dialog-actions>
+  <button type="submit" md-raised-button color="primary" [md-dialog-close]=true>Cancel</button>
+  <button type="submit" md-raised-button color="primary" (click)="editData()">Submit</button>
+</md-dialog-actions>

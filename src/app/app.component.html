@@ -1,0 +1,22 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="container">
+    {{isValidUser | json}}
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Angular 2</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li><a routerLink="/user" routerLinkActive="active">User</a></li>
+                <li><a routerLink="/customer" routerLinkActive="active">Customer</a></li>
+                <li><a routerLink="/employee" routerLinkActive="active">Employee</a></li>
+                <li><a routerLink="/order" routerLinkActive="active">Order</a></li>
+                <li><a routerLink="/product" routerLinkActive="active">Product</a></li>
+                <li><a routerLink="/post" routerLinkActive="active">Post</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <router-outlet></router-outlet>
+
+</div>

@@ -1,0 +1,30 @@
+1. constructor()
+
+this is first method or event which will be called, when an component/services
+is created.
+
+Usage: Only to inject some services, there should not be any code in your constructor 
+function.
+
+2. ngOnInit()
+
+import ngOnInit interface from angular/core
+To load some data which you want on page/component load, 
+and everything is initilised in this lifecycle event.
+
+
+3. ngDoCheck()
+
+import ngDoCheck interface from angular/core
+This is a lifecycle event, which will be called after init and after every event is 
+fired.
+
+This event is only to hanlde some business specific things.
+
+4. ngOnChanges()
+
+import OnChanges interface from angular/core
+
+Can be used to track old and new value in your child component.
+properties with Input() decorator, will be only checked.
+

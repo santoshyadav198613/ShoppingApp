@@ -1,0 +1,50 @@
+<h1>Product List</h1>
+
+    <div class="form-group">
+        <label for="Price">Price:</label>
+        <input type="number" class="form-control" id="Price" required placeholder="Price" name="price" [(ngModel)]="price">
+    </div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                ID
+            </th>
+            <th>
+                Image
+            </th>
+            <th>
+                Name
+            </th>
+            <th>
+                Price
+            </th>
+            <th>
+                Details
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let product of productList "> <!-- | inr : price -->
+            <td>
+                {{product.id}}
+            </td>
+            <td>
+                <img [src]="product.imageUrl" [alt]="product.imageUrl">
+            </td>
+            <td>
+                {{product.name}}
+            </td>
+            <td>
+                {{product.price }}
+            </td>
+            <td>
+                <button [routerLink]="['/product',product.id]" class="btn btn-primary">Details</button>
+            </td>
+            <td>
+                <button type="submit" md-raised-button color="primary" (click)="openEdit(product)">Edit</button>
+            </td>
+        </tr>
+    </tbody>
+</table>

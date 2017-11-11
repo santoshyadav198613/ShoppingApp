@@ -1,0 +1,40 @@
+<p>
+    Product Details for Product Id: {{productData[0].id}}
+</p>
+
+{{productData | json }}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                ID
+            </th>
+            <th>
+                Image
+            </th>
+            <th>
+                Name
+            </th>
+            <th>
+                Price
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let product of productData">
+            <td>
+                {{product.id}}
+            </td>
+            <td>
+                <img [src]="product.imageUrl" [alt]="product.imageUrl">
+            </td>
+            <td>
+                {{product.name}}
+            </td>
+            <td>
+                {{product.price | inr}}
+            </td>
+        </tr>
+    </tbody>
+</table>

@@ -1,0 +1,60 @@
+<form [formGroup]="orderForm" (submit)="addOrder(orderForm.value)">
+    <div class="form-group">
+        <input type="text" class="form-control" formControlName="customerName" placeholder="Customer Name">
+        <div [hidden]="orderForm.get('customerName').valid && orderForm.get('customerName').dirty" class="alert alert-danger">
+            Customer Name is required!
+        </div>
+    </div>
+    <div class="form-group">
+        <input type="date" class="form-control" formControlName="orderDate" placeholder="Order Date">
+    </div>
+    <div class="form-group">
+        <input type="email" class="form-control" formControlName="email" placeholder="Email">
+    </div>
+    <div class="form-group">
+        <input type="text" class="form-control" formControlName="orderId" placeholder="Order Id">
+    </div>
+    <div class="form-group">
+        <input type="number" class="form-control" formControlName="amount" placeholder="Amount">
+    </div>
+    <div formGroupName="address">
+        <div class="form-group">
+            <input type="text" class="form-control" formControlName="addressLine1" placeholder="Address Line1">
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" formControlName="addressLine2" placeholder="Address Line2">
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" formControlName="city" placeholder="City">
+        </div>
+        <div class="form-group">
+            <input type="number" class="form-control" formControlName="pin" placeholder="Pin">
+        </div>
+    </div>
+    <button class="btn btn-primary" (click)="addCard()">Add Card</button>
+    <div formArrayName="cardDetails">
+        <div *ngFor="let card of orderForm.controls.cardDetails.controls;let i=index">
+            <div [formGroupName]="i" class="form-group">
+                Card {{i+1}} Details
+                <div class="form-group">
+                    <input type="number" class="form-control" formControlName="cardNumber" placeholder="Card Number">
+                </div>
+                <div class="form-group">
+                    <input type="date" class="form-control" formControlName="expiryMonth" placeholder="Expiry Month">
+                </div>
+                <div class="form-group">
+                    <input type="date" class="form-control" formControlName="expiryYear" placeholder="Expiry Year">
+                </div>
+                <div class="form-group">
+                    <input type="number" class="form-control" formControlName="cvv" placeholder="CVV">
+                </div>
+                <button *ngIf="i>0" class="btn btn-danger" (click)="removeCard(i)">Remove Card</button>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <button type="submit" [disabled]="orderForm.invalid" class="btn btn-primary">Add Order</button>
+    </div>
+</form>
+
+{{orderForm.value | json}} {{orderForm.valid | json}}

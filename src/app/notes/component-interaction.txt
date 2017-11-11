@@ -1,0 +1,27 @@
+To pass data from child component to parent
+1. declare an output
+2. @Output() onHide = new EventEmitter<boolean>(); create new instance of evenemitter 
+3. emit the value from any event 
+	  hideClick() {
+    this.onHide.emit(true);
+    this.isVisible = false;
+  }
+4. capture event on parent 
+	(onHide)="toggleVisible($event)"
+where toggleVisible is another function in parent component, which get the value from
+this.onHide.emit(true)
+
+
+To pass data to child component
+1. declare a variable with @Input() decorator
+2. Once you add this decorator, the variable can get the value from outside
+3. Pass the required parameter from parent use "[input_property]="varfromparent""  to pass data
+
+
+Using ViewChild and ViewChildren
+
+1. Both are used when you want to give control of your child components to parent component
+2. ViewChild gived the instance of first component
+3. ViewChildren gives the instance of more than 1 component used
+4. ViewChildrent gives you QueryList<Component>, so you can loop through every component
+5. Requires ViewChild, ViewChildre and QueryList from '@angular/core'

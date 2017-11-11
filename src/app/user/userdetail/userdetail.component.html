@@ -1,0 +1,29 @@
+
+    User Details for user id :  {{ userData | json}}
+
+<table class="table">
+    <thead>
+        <th>
+            User Id
+        </th>
+        <th>
+            Name
+        </th>
+        <th>
+            Address
+        </th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of userData">
+            <td>
+                {{user.userId}}
+            </td>
+            <td>
+                {{user.name}}
+            </td>
+            <td>
+                {{user.address}}
+            </td>
+        </tr>
+    </tbody>
+</table>

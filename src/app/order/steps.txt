@@ -1,0 +1,17 @@
+1. Import ReactiveFormsModule and add in imports array
+2. import FormBuilder, FormGroup in your component
+3. dedclare a variable of type FromGroup
+4. inject FormBuilder into constructor, which will help us
+to create form dynamically
+5. define the properties using FormBuilder
+
+To create a FormArray:
+1. Define a property with FormArray type
+2. add a FormGroup inside a FormArray
+3. To bind to HTML use formArrayName
+
+
+formGroup - The name of you form declared in ts FormBuilder
+formGroupName: Any nested form inside you form
+formArrayName: name of property which is of type FormArray
+formControlName: control/property name created in ts.

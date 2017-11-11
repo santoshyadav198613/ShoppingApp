@@ -1,0 +1,63 @@
+<p>
+    employee works! {{name}}
+</p>
+<input class="form-control" type="text" [value]="newName" name="name" [(ngModel)]="newName">
+<button class="btn btn-primary" (click)="updateName(newName)">Update Name</button>
+<!--<div *ngIf="isVisible">
+    The div is visible
+</div>
+<div *ngIf="!isVisible">
+    The div is not visible
+</div> -->
+<br/>
+<br/>
+<br/>
+<form (submit)="save()" novalidate #empForm="ngForm" >
+    <div class="form-group">
+        <input type="number" class="form-control" name="id" placeholder="Employee Id" [(ngModel)]="emp.id">
+    </div>
+    <div class="form-group">
+        <input type="text" class="form-control" name="name" placeholder="Employee Name" [(ngModel)]="emp.name">
+    </div>
+    <div class="form-group">
+        <input type="text" class="form-control" name="address" placeholder="Employee Address" 
+        [(ngModel)]="emp.address">
+
+    </div>
+    <div>
+        <button type="submit" [disabled]="empForm.invalid" class="btn btn-primary">Add Employee</button>
+    </div>
+</form>
+
+<br/>
+<br/>
+<br/>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                ID
+            </th>
+            <th>
+                Name
+            </th>
+            <th>
+                Address
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let emp of employees">
+            <td>
+                {{emp.id}}
+            </td>
+            <td>
+                {{emp.name}}
+            </td>
+            <td>
+                {{emp.address}}
+            </td>
+        </tr>
+    </tbody>
+</table>

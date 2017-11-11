@@ -1,0 +1,7 @@
+can be used to turn off the change detection for a component.
+Must be applied to a component which will not change.
+
+Steps to configure:
+1. import ChangeDetectionStrategy from angular/configure
+2. set changeDetection : ChangeDetectionStrategy.OnPush in @Component decorator
+3. To capture if changes are made, use ngOnChanges event

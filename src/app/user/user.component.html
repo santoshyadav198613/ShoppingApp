@@ -1,0 +1,54 @@
+<p>
+    user works! {{name}}
+    <input class="form-control" type="text" id="name" [value]="name">
+</p>
+<div [innerText]="name">{{name}}</div>
+<button class="btn btn-primary" (click)="updateName()">Update Name</button>
+<button class="btn btn-primary" (click)="toggle()">Show/Hide Table</button>
+<!-- 
+    
+<app-userdetail [users]="userList" [title]="title" (onHide)="toggleVisible($event)"></app-userdetail>
+<app-userdetail [users]="userList" [title]="'User List'" (onHide)="toggleVisible($event)"></app-userdetail>
+<app-userdetail [users]="userList" [title]="'User List'" (onHide)="toggleVisible($event)"></app-userdetail>
+
+-->
+
+<button class="btn btn-primary" (click)="changeTitle()">Change Title</button>
+<button class="btn btn-primary" (click)="addUser()">Add User</button>
+
+<h1>{{title}}</h1>
+<table class="table">
+    <thead>
+        <th>
+            User Id
+        </th>
+        <th>
+            Name
+        </th>
+        <th>
+            Address
+        </th>
+         <th>
+            Details
+        </th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of userList">
+            <td>
+                {{user.userId}}
+            </td>
+            <td>
+                {{user.name}}
+            </td>
+            <td>
+                {{user.address}}
+            </td>
+            <td>
+                <button [routerLink]="['/user',user.userId]" class="btn btn-primary">Details</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<button (click)="hideClick()" class="btn btn-primary">Hide/Show</button>
+<router-outlet></router-outlet>
